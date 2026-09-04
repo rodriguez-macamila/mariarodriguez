@@ -9,13 +9,24 @@ layout: default
 
 <section id="featured" class="featured-projects">
   <h3>Featured Projects</h3>
-  <div class="projects-grid">
+
+  <!-- Filter bar -->
+  <div class="filter-bar" role="toolbar" aria-label="Filter projects by service">
+    <button class="filter-button active" data-filter="All" aria-pressed="true">All</button>
+    {% for s in site.services %}
+      <button class="filter-button" data-filter="{{ s | escape }}">{{ s }}</button>
+    {% endfor %}
+  </div>
+
+  <div class="projects-grid" id="featuredGrid" role="list">
     {% assign featured = site.projects | sort: 'featuredOrder' | slice: 0,6 %}
     {% for project in featured %}
       {% if project.title and project.published != false %}
-      <article class="project">
+      <article class="project" role="listitem" data-services="{{ project.services | join: ',' }}">
         <a href="{{ site.baseurl }}{{ project.url }}">
-          <img src="{{ site.baseurl }}{{ project.coverImage | default: '/assets/images/placeholder-project.jpg' }}" alt="{{ project.title }}">
+          <div class="thumb">
+            <img src="{{ site.baseurl }}{{ project.coverImage | default: '/assets/images/placeholder-project.jpg' }}" alt="{{ project.title }}">
+          </div>
         </a>
         <h4><a href="{{ site.baseurl }}{{ project.url }}">{{ project.title }}</a></h4>
         <p class="tags">
@@ -29,6 +40,9 @@ layout: default
       {% endif %}
     {% endfor %}
   </div>
+
+  <!-- Projects filter logic -->
+  <script src="{{ site.baseurl }}/assets/js/projects-filter.js" defer></script>
 </section>
 
 <section id="services" class="services">
