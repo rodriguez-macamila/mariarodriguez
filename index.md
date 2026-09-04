@@ -12,7 +12,11 @@ layout: default
 Browse all projects. Click a project to see details. Use the tags to filter projects by service.
 
 <div class="projects-grid">
- {% assign projects_list = site.projects | where_exp: "project", "project.featuredOrder != nil" | sort: 'featuredOrder' %}
+ {% if site.projects %}
+  {% assign projects_list = site.projects | where_exp: "project", "project.featuredOrder != nil" | sort: 'featuredOrder' %}
+{% else %}
+  {% assign projects_list = empty %}
+{% endif %}
   {% for project in projects_list %}
   <article class="project">
     <a href="{{ project.url }}">
