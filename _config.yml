@@ -1,3 +1,4 @@
+
 title: "Maria Rodriguez — Architecture & Design" email: "" description: "Portfolio site for Maria Rodriguez — architecture, editorial design, research, and illustration." baseurl: "/mariarodriguez" url: "https://rodriguez-macamila.github.io" theme: minima collections: projects: output: true permalink: "/projects/:name/" markdown: kramdown plugins: []
 
 services:
