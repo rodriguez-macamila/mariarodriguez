@@ -30,3 +30,92 @@ a{color:var(--accent);text-decoration:none}
 .cta{margin:28px 0;padding:18px;background:rgba(99,35,16,0.03);border-radius:6px}
 
 @media (max-width:520px){.hero h2{font-size:24px}.project img{height:140px}}
+
+/* Projects grid */
+.projects-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  align-items: start;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Each project card */
+.project {
+  background: rgba(255,255,255,0.02);
+  border-radius: 6px;
+  overflow: hidden;
+  transition: box-shadow .18s ease, transform .18s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Clickable area */
+.project a {
+  color: inherit;
+  text-decoration: none;
+  display: block;
+}
+
+/* Thumbnail container keeps consistent aspect ratio */
+.thumb {
+  width: 100%;
+  aspect-ratio: 4 / 3; /* fallback modern browsers */
+  background: #111;
+  overflow: hidden;
+  display: block;
+}
+
+/* Image covers the thumbnail area */
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .35s ease;
+  will-change: transform;
+}
+
+/* Hover / focus effects */
+.project:hover,
+.project:focus-within {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.45);
+}
+.project:hover .thumb img,
+.project:focus-within .thumb img {
+  transform: scale(1.06);
+}
+
+/* Title & tags */
+.project h4 {
+  font-size: 1rem;
+  margin: 0.5rem;
+  line-height: 1.2;
+}
+.project .tags {
+  margin: 0 0.5rem 0.75rem;
+}
+.tag {
+  display: inline-block;
+  background: rgba(255,255,255,0.03);
+  color: inherit;
+  padding: 0.18rem 0.5rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  margin-right: 0.4rem;
+}
+
+/* Small screens: a bit more vertical spacing */
+@media (max-width: 480px) {
+  .projects-grid { gap: 0.6rem; }
+  .project h4 { font-size: 0.95rem; }
+}
+
+/* Optional: keep projects grid centered inside .wrap */
+.wrap .projects-grid {
+  margin: 0 auto;
+  max-width: 1200px;
+}
