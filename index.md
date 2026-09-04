@@ -7,36 +7,18 @@ layout: default
   <p class="lead">Architect, designer and researcher working at the intersection of built form, publishing, and visual culture.</p>
 </section>
 
-# Projects
-
-Browse all projects. Click a project to see details. Use the tags to filter projects by service.
-
-<div class="projects-grid">
-  {% assign projects_list = site.projects | sort: 'featuredOrder' %}
-  {% for project in projects_list %}
-    {% if project.title and project.published != false %}
+<section id="featured" class="featured-projects">
+  <h3>Featured Projects</h3>
+  <div class="projects-grid">
+    {% for project in site.projects limit:6 %}
     <article class="project">
-      <a href="{{ project.url }}">
-        <div class="thumb">
-          <img
-            src="{{ site.baseurl }}{{ project.coverImage | default: '/assets/images/placeholder-project.jpg' }}"
-            alt="{{ project.title }}"
-            loading="lazy"
-          >
-        </div>
-      </a>
+      <a href="{{ project.url }}"><img src="{{ project.image | default: '/assets/images/placeholder-project.jpg' }}" alt="{{ project.title }}"></a>
       <h4><a href="{{ project.url }}">{{ project.title }}</a></h4>
-      <p class="tags">
-        {% if project.services %}
-          {% for tag in project.services %}
-            <span class="tag">{{ tag }}</span>
-          {% endfor %}
-        {% endif %}
-      </p>
+      <p class="tags">{% for tag in project.tags %}<span class="tag">{{ tag }}</span>{% endfor %}</p>
     </article>
-    {% endif %}
-  {% endfor %}
-</div>
+    {% endfor %}
+  </div>
+</section>
 
 <section id="services" class="services">
   <h3>Services</h3>
@@ -54,19 +36,6 @@ Browse all projects. Click a project to see details. Use the tags to filter proj
       <p>Designed and delivered services for projects across architecture, interiors, and visual communication.</p>
       {% endif %}
     </div>
-    {% endfor %}
-  </div>
-</section>
-
-<section id="featured" class="featured-projects">
-  <h3>Featured Projects</h3>
-  <div class="projects-grid">
-    {% for project in site.projects limit:6 %}
-    <article class="project">
-      <a href="{{ project.url }}"><img src="{{ project.image | default: '/assets/images/placeholder-project.jpg' }}" alt="{{ project.title }}"></a>
-      <h4><a href="{{ project.url }}">{{ project.title }}</a></h4>
-      <p class="tags">{% for tag in project.tags %}<span class="tag">{{ tag }}</span>{% endfor %}</p>
-    </article>
     {% endfor %}
   </div>
 </section>
