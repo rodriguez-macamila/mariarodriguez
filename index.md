@@ -12,15 +12,17 @@ layout: default
 Browse all projects. Click a project to see details. Use the tags to filter projects by service.
 
 <div class="projects-grid">
-  {% if site.projects %}
   {% assign projects_list = site.projects | sort: 'featuredOrder' %}
-{% else %}
-  {% assign projects_list = empty_array %}
-{% endif %}
   {% for project in projects_list %}
   <article class="project">
     <a href="{{ project.url }}">
-      <img src="{{ site.baseurl }}{{ project.coverImage | default: '/assets/images/placeholder-project.jpg' }}" alt="{{ project.title }}">
+      <div class="thumb">
+        <img
+          src="{{ site.baseurl }}{{ project.coverImage | default: '/assets/images/placeholder-project.jpg' }}"
+          alt="{{ project.title }}"
+          loading="lazy"
+        >
+      </div>
     </a>
     <h4><a href="{{ project.url }}">{{ project.title }}</a></h4>
     <p class="tags">
