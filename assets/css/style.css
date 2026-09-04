@@ -81,3 +81,78 @@ a{color:var(--accent);text-decoration:none}
 .project h4 { font-size: 1rem; margin: 0.5rem; line-height: 1.2; }
 .project .tags { margin: 0 0.5rem 0.75rem; }
 .tag { display: inline-block; background: rgba(255,255,255,0.03); padding: .18rem .5rem; border-radius: 999px; font-size: .78rem; margin-right: .4rem; }
+
+/* Full-bleed helper: keep element full viewport width without horizontal overflow */
+.full-bleed {
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  width: 100vw;
+  overflow: hidden;
+}
+
+/* Cover image */
+.project-cover { max-height: 85vh; display: flex; align-items: center; justify-content: center; }
+.project-cover .cover-image {
+  width: 100%;
+  height: auto;
+  max-height: 85vh;
+  object-fit: cover;
+  display: block;
+}
+
+/* Gallery viewport uses vertical scroll snapping */
+.project-gallery { background: transparent; }
+.gallery-viewport {
+  height: 100vh; /* each viewport scroll covers one slide */
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Each slide fills the viewport and snaps */
+.gallery-slide {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  scroll-snap-align: start;
+  position: relative;
+}
+
+/* Make gallery image fill viewport height while keeping centered and not overflowing horizontally */
+.gallery-image {
+  display: block;
+  max-height: 100vh;
+  width: auto;
+  max-width: none;
+  object-fit: contain;
+  margin: 0 auto;
+}
+
+/* Optional caption positioning */
+.gallery-caption {
+  position: absolute;
+  left: 1rem;
+  bottom: 1.25rem;
+  color: rgba(255,255,255,0.92);
+  background: rgba(0,0,0,0.35);
+  padding: 0.35rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+/* Make sure project text is readable and constrained */
+.project-body.wrap {
+  max-width: 980px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .project-cover .cover-image { max-height: 60vh; }
+  .gallery-caption { font-size: 0.85rem; left: 0.5rem; right: 0.5rem; bottom: 1rem; }
+}
