@@ -156,3 +156,98 @@ a{color:var(--accent);text-decoration:none}
   .project-cover .cover-image { max-height: 60vh; }
   .gallery-caption { font-size: 0.85rem; left: 0.5rem; right: 0.5rem; bottom: 1rem; }
 }
+/* ---------- Immersive project gallery ---------- */
+
+/* Full-bleed helper (container reaches edges) */
+.full-bleed {
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  width: 100vw;
+  overflow: hidden;
+}
+
+/* COVER: bigger and more dominant than slides */
+.project-cover {
+  height: 100vh; /* cover takes full viewport height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.project-cover .cover-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Gallery viewport (vertical scroll with snap) */
+.gallery-viewport.immersive {
+  height: 100vh;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Each slide: slightly smaller than the cover (small "pad"/gap) */
+/* Use scroll-snap-align:center so slides are centered in viewport */
+.immersive-slide {
+  min-height: 100vh;            /* ensures slide area fills viewport */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  scroll-snap-align: center;
+  position: relative;
+  padding: 3vh 0;               /* vertical padding between cover/next slide */
+  box-sizing: border-box;
+}
+
+/* Frame that constrains image size a bit smaller than full viewport */
+.immersive-frame {
+  width: calc(100vw - 6vw);     /* small horizontal padding compared to cover */
+  max-width: 1400px;            /* optional max width for very wide screens */
+  height: calc(100vh - 8vh);    /* smaller than full viewport to leave vertical pad */
+  overflow: hidden;
+  margin: 0 auto;
+  display: block;
+}
+
+/* The immersive image fills the frame and is centered/cropped */
+.immersive-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;            /* immersive, crops to fill frame */
+  display: block;
+  transform-origin: center;
+  will-change: transform;
+}
+
+/* caption */
+.gallery-caption {
+  position: absolute;
+  left: 1rem;
+  bottom: 1.5rem;
+  color: rgba(255,255,255,0.95);
+  background: rgba(0,0,0,0.35);
+  padding: 0.35rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+/* Make project text comfortable under gallery */
+.project-body.wrap { max-width: 980px; margin: 2rem auto; padding: 0 1rem; }
+
+/* Responsive adjustments */
+@media (max-width: 1100px) {
+  .immersive-frame { width: calc(100vw - 4vw); height: calc(100vh - 6vh); }
+}
+@media (max-width: 700px) {
+  .project-cover { height: 70vh; }
+  .immersive-frame { width: calc(100vw - 2rem); height: calc(70vh - 4vh); }
+  .gallery-caption { left: 0.6rem; bottom: 1rem; font-size: 0.85rem; }
+}
+
+/* Prevent horizontal overflow on small devices */
+html, body { overflow-x: hidden; }
