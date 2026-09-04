@@ -2,6 +2,11 @@
 layout: default
 ---
 
+<section class="hero">
+  <h2>Maria Rodriguez — Architecture & Design</h2>
+  <p class="lead">Architect, designer and researcher working at the intersection of built form, publishing, and visual culture.</p>
+</section>
+
 # Projects
 
 Browse all projects. Click a project to see details. Use the tags to filter projects by service.
@@ -28,11 +33,6 @@ Browse all projects. Click a project to see details. Use the tags to filter proj
   </article>
   {% endfor %}
 </div>
-
-<section class="hero">
-  <h2>Maria Rodriguez — Architecture & Design</h2>
-  <p class="lead">Architect, designer and researcher working at the intersection of built form, publishing, and visual culture.</p>
-</section>
 
 <section id="services" class="services">
   <h3>Services</h3>
