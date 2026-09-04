@@ -1,0 +1,43 @@
+---
+layout: default
+---
+<article class="project-page wrap">
+  <header class="project-header">
+    <h1>{{ page.title }}</h1>
+    {% if page.tagline %}<p class="tagline">{{ page.tagline }}</p>{% endif %}
+    <p class="meta">
+      {% if page.client %}<strong>Client:</strong> {{ page.client }}{% endif %}
+      {% if page.location %} • <strong>Location:</strong> {{ page.location }}{% endif %}
+      {% if page.year %} • <strong>Year:</strong> {{ page.year }}{% endif %}
+    </p>
+  </header>
+
+  {% if page.coverImage %}
+  <div class="project-cover">
+    <img src="{{ page.coverImage }}" alt="{{ page.coverAlt | default: page.title }}">
+  </div>
+  {% endif %}
+
+  <section class="project-body">
+    {{ content }}
+  </section>
+
+  {% if page.gallery %}
+  <section class="project-gallery">
+    <h3>Gallery</h3>
+    <div class="projects-grid">
+      {% for item in page.gallery %}
+      <figure class="project-figure">
+        <img src="{{ item.src }}" alt="{{ item.alt }}">
+        {% if item.caption %}<figcaption>{{ item.caption }}</figcaption>{% endif %}
+      </figure>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  <footer class="project-credits">
+    {% if page.credits %}<p><small>{{ page.credits }}</small></p>{% endif %}
+    {% if page.liveUrl %}<p><a href="{{ page.liveUrl }}" target="_blank" rel="noopener">View original / case study</a></p>{% endif %}
+  </footer>
+</article>
