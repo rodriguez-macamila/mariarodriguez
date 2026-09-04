@@ -12,26 +12,26 @@ layout: default
     </p>
   </header>
 
-  <!-- Full-bleed cover -->
+  <!-- Full-bleed cover (immersive) -->
   {% if page.coverImage %}
   <section class="project-cover full-bleed">
     <img src="{{ site.baseurl }}{{ page.coverImage }}" alt="{{ page.coverAlt | default: page.title }}" class="cover-image" loading="eager">
   </section>
   {% endif %}
 
-  <!-- Content under cover (project text) -->
+  <!-- Project text (constrained width) -->
   <section class="project-body wrap">
     {{ content }}
   </section>
 
-  <!-- Fullscreen gallery with scroll snapping -->
+  <!-- Immersive vertical gallery -->
   {% if page.gallery %}
-  <section class="project-gallery" id="projectGallery" data-snap="true" aria-label="Project gallery">
-    <div class="gallery-viewport">
+  <section class="project-gallery" id="projectGallery" aria-label="Project gallery">
+    <div class="gallery-viewport immersive">
       {% for item in page.gallery %}
-      <figure class="gallery-slide" role="group" aria-label="Slide {{ forloop.index }}">
-        <div class="full-bleed">
-          <img src="{{ site.baseurl }}{{ item.src }}" alt="{{ item.alt }}" loading="lazy" class="gallery-image">
+      <figure class="gallery-slide immersive-slide" role="group" aria-label="Slide {{ forloop.index }}">
+        <div class="immersive-frame">
+          <img src="{{ site.baseurl }}{{ item.src }}" alt="{{ item.alt }}" loading="lazy" class="immersive-image">
         </div>
         {% if item.caption %}
         <figcaption class="gallery-caption">{{ item.caption }}</figcaption>
@@ -48,5 +48,4 @@ layout: default
   </footer>
 </article>
 
-<!-- load optional JS for improved snap on desktop -->
 <script src="{{ site.baseurl }}/assets/js/gallery-snap.js" async></script>
