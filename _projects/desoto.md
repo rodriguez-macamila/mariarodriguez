@@ -1,4 +1,5 @@
 ---
+layout: project
 title: "DeSoto Commercial Renders"
 tagline: "Images for marketing"
 services: ["3D Modelling", "Rendering & Visualization"]
