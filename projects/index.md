@@ -11,7 +11,7 @@ Browse all projects. Click a project to see details. Use the tags to filter proj
   {% for project in projects_list %}
     {% if project.title and project.published != false %}
     <article class="project">
-      <a href="{{ project.url }}">
+      <a href="{{ site.baseurl }}{{ project.url }}">
         <div class="thumb">
           <img
             src="{{ site.baseurl }}{{ project.coverImage | default: '/assets/images/placeholder-project.jpg' }}"
@@ -20,7 +20,7 @@ Browse all projects. Click a project to see details. Use the tags to filter proj
           >
         </div>
       </a>
-      <h4><a href="{{ project.url }}">{{ project.title }}</a></h4>
+      <h4><a href="{{ site.baseurl }}{{ project.url }}">{{ project.title }}</a></h4>
       <p class="tags">
         {% if project.services %}
           {% for tag in project.services %}
