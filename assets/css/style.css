@@ -40,6 +40,111 @@ a{color:var(--accent);text-decoration:none}
   margin: 0;
   padding: 0;
 }
+/* Featured Projects: larger 3x2 grid and filter UI */
+.featured-projects {
+  padding: 2rem 1rem;
+}
+
+.featured-projects h3 {
+  margin-bottom: 1rem;
+  text-align: left;
+}
+
+/* Filter bar */
+.filter-bar {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+.filter-button {
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.02);
+  color: inherit;
+  padding: 0.35rem 0.65rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background .18s ease, transform .12s ease;
+  font-size: 0.95rem;
+}
+.filter-button:hover { transform: translateY(-2px); }
+.filter-button.active,
+.filter-button[aria-pressed="true"] {
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.12);
+}
+
+/* Projects grid: grows horizontally up to a cap, but keeps 3 columns x 2 rows */
+.projects-grid {
+  display: grid;
+  gap: 1rem;
+  /* allow it to grow horizontally but cap size */
+  width: min(1600px, 96vw);
+  margin: 0 auto;
+  grid-template-columns: repeat(3, 1fr); /* 3 across */
+  grid-template-rows: repeat(2, 1fr);    /* 2 rows */
+  align-items: stretch;
+  justify-items: stretch;
+  /* fixed row height to keep a consistent 3x2 layout */
+  /* We use a consistent tile aspect via the thumb */
+}
+
+/* Tile/card adjustments */
+.project {
+  display: flex;
+  flex-direction: column;
+  background: rgba(255,255,255,0.01);
+  border-radius: 6px;
+  overflow: hidden;
+  transition: transform .18s ease, opacity .18s ease;
+}
+
+/* Make each tile occupy its grid cell fully */
+.project a { display: block; width: 100%; flex: 1 1 auto; }
+.thumb {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4 / 3; /* consistent tile aspect */
+  overflow: hidden;
+  display: block;
+}
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Title & tags area */
+.project h4 {
+  font-size: 1rem;
+  margin: 0.5rem;
+}
+.project .tags { margin: 0 0.5rem 0.75rem; }
+
+/* Hidden state for filtering */
+.project.hidden {
+  opacity: 0;
+  transform: scale(.985);
+  pointer-events: none;
+  filter: blur(1px);
+  height: 0 !important; /* collapse in layout */
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Responsive: fall to 2 columns then 1 column */
+@media (max-width: 1000px) {
+  .projects-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: none; width: min(1100px, 96vw); }
+}
+@media (max-width: 600px) {
+  .projects-grid { grid-template-columns: 1fr; width: 100%; }
+}
+
+/* Smooth transition when items show/hide */
+.projects-grid .project {
+  transition: opacity .25s ease, transform .18s ease, height .25s ease;
+}
 
 /* Keep card styling from before */
 .project {
