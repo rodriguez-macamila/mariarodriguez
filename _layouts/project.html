@@ -1,8 +1,8 @@
 ---
 layout: default
 ---
-<article class="project-page wrap">
-  <header class="project-header">
+<article class="project-page">
+  <header class="project-header wrap">
     <h1>{{ page.title }}</h1>
     {% if page.tagline %}<p class="tagline">{{ page.tagline }}</p>{% endif %}
     <p class="meta">
@@ -12,32 +12,41 @@ layout: default
     </p>
   </header>
 
+  <!-- Full-bleed cover -->
   {% if page.coverImage %}
-  <div class="project-cover">
-    <img src="{{ site.baseurl }}{{ page.coverImage }}" alt="{{ page.coverAlt | default: page.title }}" loading="lazy">
-  </div>
+  <section class="project-cover full-bleed">
+    <img src="{{ site.baseurl }}{{ page.coverImage }}" alt="{{ page.coverAlt | default: page.title }}" class="cover-image" loading="eager">
+  </section>
   {% endif %}
 
-  <section class="project-body">
+  <!-- Content under cover (project text) -->
+  <section class="project-body wrap">
     {{ content }}
   </section>
 
+  <!-- Fullscreen gallery with scroll snapping -->
   {% if page.gallery %}
-  <section class="project-gallery">
-    <h3>Gallery</h3>
-    <div class="projects-grid">
+  <section class="project-gallery" id="projectGallery" data-snap="true" aria-label="Project gallery">
+    <div class="gallery-viewport">
       {% for item in page.gallery %}
-      <figure class="project-figure">
-        <img src="{{ site.baseurl }}{{ item.src }}" alt="{{ item.alt }}" loading="lazy">
-        {% if item.caption %}<figcaption>{{ item.caption }}</figcaption>{% endif %}
+      <figure class="gallery-slide" role="group" aria-label="Slide {{ forloop.index }}">
+        <div class="full-bleed">
+          <img src="{{ site.baseurl }}{{ item.src }}" alt="{{ item.alt }}" loading="lazy" class="gallery-image">
+        </div>
+        {% if item.caption %}
+        <figcaption class="gallery-caption">{{ item.caption }}</figcaption>
+        {% endif %}
       </figure>
       {% endfor %}
     </div>
   </section>
   {% endif %}
 
-  <footer class="project-credits">
+  <footer class="project-credits wrap">
     {% if page.credits %}<p><small>{{ page.credits }}</small></p>{% endif %}
     {% if page.liveUrl %}<p><a href="{{ page.liveUrl }}" target="_blank" rel="noopener">View original / case study</a></p>{% endif %}
   </footer>
 </article>
+
+<!-- load optional JS for improved snap on desktop -->
+<script src="{{ site.baseurl }}/assets/js/gallery-snap.js" async></script>
