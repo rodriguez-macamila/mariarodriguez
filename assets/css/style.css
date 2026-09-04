@@ -191,24 +191,23 @@ a{color:var(--accent);text-decoration:none}
   -webkit-overflow-scrolling: touch;
 }
 
-/* Each slide: slightly smaller than the cover (small "pad"/gap) */
-/* Use scroll-snap-align:center so slides are centered in viewport */
+/* Each slide: slightly smaller than the cover (smaller "pad" between slides) */
 .immersive-slide {
-  min-height: 100vh;            /* ensures slide area fills viewport */
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   scroll-snap-align: center;
   position: relative;
-  padding: 3vh 0;               /* vertical padding between cover/next slide */
+  padding: 1vh 0;               /* reduced vertical padding (was 3vh) */
   box-sizing: border-box;
 }
 
 /* Frame that constrains image size a bit smaller than full viewport */
 .immersive-frame {
-  width: calc(100vw - 6vw);     /* small horizontal padding compared to cover */
-  max-width: 1400px;            /* optional max width for very wide screens */
-  height: calc(100vh - 8vh);    /* smaller than full viewport to leave vertical pad */
+  width: calc(100vw - 4vw);     /* smaller horizontal pad (was 6vw) */
+  max-width: 1400px;
+  height: calc(100vh - 4vh);    /* reduced vertical inset so image is larger (was 8vh) */
   overflow: hidden;
   margin: 0 auto;
   display: block;
