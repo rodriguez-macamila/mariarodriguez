@@ -14,7 +14,7 @@ layout: default
 
   {% if page.coverImage %}
   <div class="project-cover">
-    <img src="{{ site.baseurl }}{{ page.coverImage }}" alt="{{ page.coverAlt | default: page.title }}">
+    <img src="{{ site.baseurl }}{{ page.coverImage }}" alt="{{ page.coverAlt | default: page.title }}" loading="lazy">
   </div>
   {% endif %}
 
@@ -28,7 +28,7 @@ layout: default
     <div class="projects-grid">
       {% for item in page.gallery %}
       <figure class="project-figure">
-        <img src="{{ item.src }}" alt="{{ item.alt }}">
+        <img src="{{ site.baseurl }}{{ item.src }}" alt="{{ item.alt }}" loading="lazy">
         {% if item.caption %}<figcaption>{{ item.caption }}</figcaption>{% endif %}
       </figure>
       {% endfor %}
