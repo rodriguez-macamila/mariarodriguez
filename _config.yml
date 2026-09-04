@@ -1,25 +1,16 @@
 ---
-title: Maria Rodriguez — Architecture & Design
-email: ''
-description: Portfolio site for Maria Rodriguez — architecture, editorial design, research, and illustration.
-baseurl: "" # the subpath of your site, e.g. /repo
-url: "https://rodriguez-macamila.github.io" # the base hostname & protocol for your site
-theme: minima
-collections:
-  projects:
-    output: true
-    permalink: /projects/:name/
-markdown: kramdown
-plugins: []
+title: Maria Rodriguez — Architecture & Design email: '' description: Portfolio site for Maria Rodriguez — architecture, editorial design, research, and illustration. baseurl: "/mariarodriguez" # the subpath of your site, e.g. /repo url: "https://rodriguez-macamila.github.io" # the base hostname & protocol for your site theme: minima collections: projects: output: true permalink: /projects/:name/ markdown: kramdown plugins: []
 
-# site data
+site data
 services:
-  - Editorial design
-  - Research & writing
-  - Illustration
-  - Architecture
-  - Interiors
 
+3D Modelling
+Rendering & Visualization
+Architectural Design
+Editorial Design
+Research & Writing
+Illustration
+Interiors
 paginate: 5
 
 # colors (used in CSS)
