@@ -1,14 +1,22 @@
-title: "Maria Rodriguez — Architecture & Design" email: "" description: "Portfolio site for Maria Rodriguez — architecture, editorial design, research, and illustration." baseurl: "/mariarodriguez" url: "https://rodriguez-macamila.github.io" theme: minima collections: projects: output: true permalink: "/projects/:name/" markdown: kramdown plugins: []
+title: "Maria Rodriguez — Architecture & Design"
+email: ""
+description: "Portfolio site for Maria Rodriguez — architecture, editorial design, research, and illustration."
+baseurl: "/mariarodriguez"
 
 services:
+  - "3D Modelling"
+  - "Rendering & Visualization"
+  - "Architectural Design"
+  - "Editorial Design"
+  - "Research & Writing"
+  - "Illustration"
+  - "Interiors"
 
-"3D Modelling"
-"Rendering & Visualization"
-"Architectural Design"
-"Editorial Design"
-"Research & Writing"
-"Illustration"
-"Interiors"
 paginate: 5
 
-colors: background: "#0b1017" primary_text: "#ffb080" secondary_muted: "#dbd7a7" accent: "#b06650" accent_dark: "#632310"
+colors:
+  background: "#0b1017"
+  primary_text: "#ffb080"
+  secondary_muted: "#dbd7a7"
+  accent: "#b06650"
+  accent_dark: "#632310"
