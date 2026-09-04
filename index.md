@@ -12,14 +12,10 @@ layout: default
 Browse all projects. Click a project to see details. Use the tags to filter projects by service.
 
 <div class="projects-grid">
- {% if site.projects %}
-  {% assign projects_list = site.projects | where_exp: "project", "project.featuredOrder != nil" | sort: 'featuredOrder' %}
-{% else %}
-  {% assign projects_list = empty %}
-{% endif %}
+  {% assign projects_list = site.projects | sort: 'featuredOrder' %}
   {% for project in projects_list %}
-  <article class="project">
-    <a href="{{ project.url }}">
+  <article class="project" data-project-url="{{ site.baseurl }}{{ project.url }}">
+    <a href="{{ site.baseurl }}{{ project.url }}" class="project-link" aria-label="Open {{ project.title }} page">
       <div class="thumb">
         <img
           src="{{ site.baseurl }}{{ project.coverImage | default: '/assets/images/placeholder-project.jpg' }}"
@@ -28,7 +24,8 @@ Browse all projects. Click a project to see details. Use the tags to filter proj
         >
       </div>
     </a>
-    <h4><a href="{{ project.url }}">{{ project.title }}</a></h4>
+
+    <h4><a href="{{ site.baseurl }}{{ project.url }}">{{ project.title }}</a></h4>
     <p class="tags">
       {% if project.services %}
         {% for tag in project.services %}
@@ -36,6 +33,15 @@ Browse all projects. Click a project to see details. Use the tags to filter proj
         {% endfor %}
       {% endif %}
     </p>
+
+    <!-- Embedded gallery JSON for JS (hidden) -->
+    <script type="application/json" class="project-images">
+    [
+      {% for item in project.gallery %}
+        "{{ site.baseurl }}{{ item.src }}"{% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    ]
+    </script>
   </article>
   {% endfor %}
 </div>
