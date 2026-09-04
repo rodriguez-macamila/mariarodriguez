@@ -12,8 +12,8 @@ layout: default
   <div class="projects-grid">
     {% for project in site.projects limit:6 %}
     <article class="project">
-      <a href="{{ project.url }}"><img src="{{ project.image | default: '/assets/images/placeholder-project.jpg' }}" alt="{{ project.title }}"></a>
-      <h4><a href="{{ project.url }}">{{ project.title }}</a></h4>
+      <a href="{{ site.baseurl }}{{ project.url }}"><img src="{{ project.image | default: '/assets/images/placeholder-project.jpg' }}" alt="{{ project.title }}"></a>
+      <h4><a href="{{ site.baseurl }}{{ project.url }}">{{ project.title }}</a></h4>
       <p class="tags">{% for tag in project.tags %}<span class="tag">{{ tag }}</span>{% endfor %}</p>
     </article>
     {% endfor %}
