@@ -251,3 +251,90 @@ a{color:var(--accent);text-decoration:none}
 
 /* Prevent horizontal overflow on small devices */
 html, body { overflow-x: hidden; }
+
+/* --- Page-level vertical scroll snapping for project pages only --- */
+/* Only enable when body has the .project-scroll-snap class (set in default.html for project pages) */
+body.project-scroll-snap {
+  scroll-snap-type: y mandatory;
+  scroll-padding-top: 0; /* adjust if you have a fixed header */
+}
+
+/* Elements that should snap: cover and each gallery slide */
+.snap-slide {
+  scroll-snap-align: center; /* center the slide in the viewport */
+}
+
+/* Remove inner scrolling container: gallery slides are normal elements */
+.project-gallery {
+  /* no overflow; slides flow in normal document flow */
+  margin: 0;
+  padding: 0;
+}
+
+/* Slide layout: make each slide immersive but slightly inset from full-bleed */
+.immersive-slide {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3vh 0; /* vertical pad between slides */
+  box-sizing: border-box;
+  position: relative;
+}
+
+/* Frame that constrains image size slightly smaller than full viewport */
+.immersive-frame {
+  width: calc(100vw - 6vw);
+  max-width: 1400px;
+  height: calc(100vh - 8vh);
+  overflow: hidden;
+  margin: 0 auto;
+  display: block;
+}
+
+/* Images are immersive and cropped */
+.immersive-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Keep cover as full-bleed and more dominant */
+.project-cover {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.project-cover .cover-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Optional caption styling */
+.gallery-caption {
+  position: absolute;
+  left: 1rem;
+  bottom: 1.5rem;
+  color: rgba(255,255,255,0.95);
+  background: rgba(0,0,0,0.35);
+  padding: 0.35rem 0.6rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+
+/* Prevent horizontal overflow */
+html, body { overflow-x: hidden; }
+
+/* Responsive tweaks */
+@media (max-width: 1100px) {
+  .immersive-frame { width: calc(100vw - 4vw); height: calc(100vh - 6vh); }
+}
+@media (max-width: 700px) {
+  .project-cover { height: 70vh; }
+  .immersive-frame { width: calc(100vw - 2rem); height: calc(70vh - 4vh); }
+  .gallery-caption { left: 0.6rem; bottom: 1rem; font-size: 0.85rem; }
+}
