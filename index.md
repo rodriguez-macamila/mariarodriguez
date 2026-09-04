@@ -12,7 +12,16 @@ layout: default
 Browse all projects. Click a project to see details. Use the tags to filter projects by service.
 
 <div class="projects-grid">
+ {% if site.projects and site.projects.size > 0 %}
   {% assign projects_list = site.projects | sort: 'featuredOrder' %}
+  {% for project in projects_list %}
+  <article class="project" data-project-url="{{ site.baseurl }}{{ project.url }}">
+    ...
+  </article>
+  {% endfor %}
+{% else %}
+  <p>No projects found.</p>
+{% endif %}
   {% for project in projects_list %}
   <article class="project" data-project-url="{{ site.baseurl }}{{ project.url }}">
     <a href="{{ site.baseurl }}{{ project.url }}" class="project-link" aria-label="Open {{ project.title }} page">
