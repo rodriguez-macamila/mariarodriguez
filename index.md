@@ -10,12 +10,23 @@ layout: default
 <section id="featured" class="featured-projects">
   <h3>Featured Projects</h3>
   <div class="projects-grid">
-    {% for project in site.projects limit:6 %}
-    <article class="project">
-      <a href="{{ site.baseurl }}{{ project.url }}"><img src="{{ project.image | default: '/assets/images/placeholder-project.jpg' }}" alt="{{ project.title }}"></a>
-      <h4><a href="{{ site.baseurl }}{{ project.url }}">{{ project.title }}</a></h4>
-      <p class="tags">{% for tag in project.tags %}<span class="tag">{{ tag }}</span>{% endfor %}</p>
-    </article>
+    {% assign featured = site.projects | sort: 'featuredOrder' | slice: 0,6 %}
+    {% for project in featured %}
+      {% if project.title and project.published != false %}
+      <article class="project">
+        <a href="{{ site.baseurl }}{{ project.url }}">
+          <img src="{{ site.baseurl }}{{ project.coverImage | default: '/assets/images/placeholder-project.jpg' }}" alt="{{ project.title }}">
+        </a>
+        <h4><a href="{{ site.baseurl }}{{ project.url }}">{{ project.title }}</a></h4>
+        <p class="tags">
+          {% if project.services %}
+            {% for tag in project.services %}
+              <span class="tag">{{ tag }}</span>
+            {% endfor %}
+          {% endif %}
+        </p>
+      </article>
+      {% endif %}
     {% endfor %}
   </div>
 </section>
