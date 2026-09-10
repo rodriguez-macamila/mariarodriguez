@@ -7,36 +7,33 @@ layout: default
     {% if page.tagline %}<p class="tagline">{{ page.tagline }}</p>{% endif %}
     <p class="meta">
       {% if page.client %}<strong>Client:</strong> {{ page.client }}{% endif %}
-      {% if page.location %} • <strong>Location:</strong> {{ page.location }}{% endif %}
-      {% if page.year %} • <strong>Year:</strong> {{ page.year }}{% endif %}
+      {% if page.location %} &bull; <strong>Location:</strong> {{ page.location }}{% endif %}
+      {% if page.year %} &bull; <strong>Year:</strong> {{ page.year }}{% endif %}
     </p>
   </header>
 
-  <!-- Full-bleed cover (immersive) -->
+  <!-- Full-bleed cover -->
   {% if page.coverImage %}
-  <section class="project-cover full-bleed snap-slide">
+  <section class="project-cover full-bleed">
     <img src="{{ site.baseurl }}{{ page.coverImage }}" alt="{{ page.coverAlt | default: page.title }}" class="cover-image" loading="eager">
   </section>
   {% endif %}
 
-  <!-- Project text (constrained width) -->
+  <!-- Project text -->
   <section class="project-body wrap">
     {{ content }}
   </section>
 
-  <!-- Immersive vertical gallery — slides are in normal document flow -->
+  <!-- Gallery grid: click any image to open the lightbox -->
   {% if page.gallery %}
-  <section class="project-gallery" id="projectGallery" aria-label="Project gallery">
-    {% for item in page.gallery %}
-    <figure class="gallery-slide immersive-slide snap-slide" role="group" aria-label="Slide {{ forloop.index }}">
-      <div class="immersive-frame">
-        <img src="{{ site.baseurl }}{{ item.src }}" alt="{{ item.alt }}" loading="lazy" class="immersive-image">
-      </div>
-      {% if item.caption %}
-      <figcaption class="gallery-caption">{{ item.caption }}</figcaption>
-      {% endif %}
-    </figure>
-    {% endfor %}
+  <section class="project-gallery wrap" aria-label="Project gallery">
+    <div class="gallery-grid">
+      {% for item in page.gallery %}
+      <button type="button" class="gallery-item">
+        <img src="{{ site.baseurl }}{{ item.src }}" alt="{{ item.alt }}" loading="lazy">
+      </button>
+      {% endfor %}
+    </div>
   </section>
   {% endif %}
 
@@ -45,5 +42,3 @@ layout: default
     {% if page.liveUrl %}<p><a href="{{ page.liveUrl }}" target="_blank" rel="noopener">View original / case study</a></p>{% endif %}
   </footer>
 </article>
-
-<!-- No gallery-wheeling JS required for natural scrolling -->
