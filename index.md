@@ -48,18 +48,10 @@ layout: default
 <section id="services" class="services wrap">
   <h3>Services</h3>
   <div class="services-grid">
-    {% for s in site.services %}
+    {% for service in site.data.services %}
     <div class="service-card">
-      <h4>{{ s }}</h4>
-      {% if s == "Editorial design" %}
-      <p>Editorial design &mdash; I craft considered layouts and typographic systems for editorial projects, from catalogs to research publications, ensuring each piece communicates its ideas clearly and beautifully.</p>
-      {% elsif s == "Research & writing" %}
-      <p>Research & writing &mdash; I investigate and write on the cultural and philosophical dimensions of architecture, exploring its history and semiotics and how built environments shape everyday life and the arts.</p>
-      {% elsif s == "Illustration" %}
-      <p>Illustration &mdash; I produce digital illustrations of buildings, objects, and architectural scenes that complement design work and help visualize concepts with clarity and character.</p>
-      {% else %}
-      <p>Designed and delivered services for projects across architecture, interiors, and visual communication.</p>
-      {% endif %}
+      <h4>{{ service.name }}</h4>
+      <p>{{ service.description }}</p>
     </div>
     {% endfor %}
   </div>
@@ -71,8 +63,12 @@ layout: default
   <div class="reviews-grid">
     {% for r in site.data.reviews %}
     <div class="review">
+      <div class="review-stars" aria-label="{{ r.rating | default: 5 }} out of 5 stars">
+        {% assign stars = r.rating | default: 5 %}
+        {% for i in (1..stars) %}&#9733;{% endfor %}
+      </div>
       <blockquote>&ldquo;{{ r.text }}&rdquo;</blockquote>
-      <cite>{{ r.name }}{% if r.role %}, {{ r.role }}{% endif %}</cite>
+      <cite>{{ r.name }}{% if r.company %}, {{ r.company }}{% endif %}{% if r.year %} &middot; {{ r.year }}{% endif %}</cite>
     </div>
     {% endfor %}
   </div>
@@ -82,5 +78,7 @@ layout: default
 </section>
 
 <section class="cta wrap">
-  <p>Interested in working together? <a href="mailto:hello@mariarodriguez.pro">Contact me</a></p>
+  <!-- TODO (Maria): confirm this is the email you want listed, or change it —
+       the old placeholder was hello@example.com. -->
+  <p>Interested in working together? <a href="mailto:info@mariarodriguez.pro">Contact me</a></p>
 </section>
