@@ -54,7 +54,7 @@ layout: default
       {% if s == "Editorial design" %}
       <p>Editorial design &mdash; I craft considered layouts and typographic systems for editorial projects, from catalogs to research publications, ensuring each piece communicates its ideas clearly and beautifully.</p>
       {% elsif s == "Research & writing" %}
-      <p>Research &amp; writing &mdash; I investigate and write on the cultural and philosophical dimensions of architecture, exploring its history and semiotics and how built environments shape everyday life and the arts.</p>
+      <p>Research & writing &mdash; I investigate and write on the cultural and philosophical dimensions of architecture, exploring its history and semiotics and how built environments shape everyday life and the arts.</p>
       {% elsif s == "Illustration" %}
       <p>Illustration &mdash; I produce digital illustrations of buildings, objects, and architectural scenes that complement design work and help visualize concepts with clarity and character.</p>
       {% else %}
