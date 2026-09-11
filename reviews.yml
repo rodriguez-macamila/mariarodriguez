@@ -10,7 +10,17 @@
 #   company: "Example Studio"
 #   year: "2026"
 #   rating: 5
+- text: "I highly recommend Maria. She’s supported me on 100+ projects, producing everything from interior/exterior renderings to site plans, aerials, and master-planned community visuals. She turns rough ideas into polished, professional work quickly, understands real estate, and is incredibly reliable. Her talent consistently elevates every project."
+name: "Kyle S."
+company: "Glaser Retail Partners"
+year: "2025"
+rating: 5
 #
+- text: "We worked with Maria on a custom illustration for our website and a full set of icons, and she was fantastic throughout the project. From the very beginning, she was highly creative, responsive, and attentive to feedback, making the collaboration smooth and enjoyable. Maria’s thoughtful ideas and attention to detail helped bring our vision to life, and the final deliverables exceeded our expectations. I would wholeheartedly recommend her to anyone looking for a talented and reliable illustrator."
+name: "Antonia R."
+company: "Princelet"
+year: "2025"
+rating: 5
 # Fields:
 #   text     required — the quote itself, no quotation marks needed, they're added automatically
 #   name     required — client's name
