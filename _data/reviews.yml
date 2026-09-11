@@ -1,29 +1,33 @@
 # Client reviews/testimonials shown in the "Reviews" section on the homepage.
-# This file is currently empty, so that section shows a "coming soon" message
-# instead of blank space.
 #
-# To add a review, add an entry in this shape (copy the example, uncomment
-# and edit it, or add a new one below):
+# To add a review, add an entry in this shape:
 #
 # - text: "Maria delivered exactly what we needed, on time and beautifully presented."
 #   name: "Jane Doe"
 #   company: "Example Studio"
 #   year: "2026"
 #   rating: 5
-- text: "I highly recommend Maria. She’s supported me on 100+ projects, producing everything from interior/exterior renderings to site plans, aerials, and master-planned community visuals. She turns rough ideas into polished, professional work quickly, understands real estate, and is incredibly reliable. Her talent consistently elevates every project."
-name: "Kyle S."
-company: "Glaser Retail Partners"
-year: "2025"
-rating: 5
 #
-- text: "We worked with Maria on a custom illustration for our website and a full set of icons, and she was fantastic throughout the project. From the very beginning, she was highly creative, responsive, and attentive to feedback, making the collaboration smooth and enjoyable. Maria’s thoughtful ideas and attention to detail helped bring our vision to life, and the final deliverables exceeded our expectations. I would wholeheartedly recommend her to anyone looking for a talented and reliable illustrator."
-name: "Antonia R."
-company: "Princelet"
-year: "2025"
-rating: 5
 # Fields:
 #   text     required — the quote itself, no quotation marks needed, they're added automatically
 #   name     required — client's name
 #   company  optional — shown after the name
 #   year     optional — shown after the company
 #   rating   optional — number of filled stars, 1-5. Defaults to 5 if left out.
+#
+# IMPORTANT: name/company/year/rating must be indented 2 spaces so they line
+# up under "text" — that indentation is what tells YAML they belong to the
+# same review. Without it, YAML reads them as separate items and the file
+# fails to parse (this is what happened before).
+
+- text: "I highly recommend Maria. She’s supported me on 100+ projects, producing everything from interior/exterior renderings to site plans, aerials, and master-planned community visuals. She turns rough ideas into polished, professional work quickly, understands real estate, and is incredibly reliable. Her talent consistently elevates every project."
+  name: "Kyle S."
+  company: "Glaser Retail Partners"
+  year: "2025"
+  rating: 5
+
+- text: "We worked with Maria on a custom illustration for our website and a full set of icons, and she was fantastic throughout the project. From the very beginning, she was highly creative, responsive, and attentive to feedback, making the collaboration smooth and enjoyable. Maria’s thoughtful ideas and attention to detail helped bring our vision to life, and the final deliverables exceeded our expectations. I would wholeheartedly recommend her to anyone looking for a talented and reliable illustrator."
+  name: "Antonia R."
+  company: "Princelet"
+  year: "2025"
+  rating: 5
