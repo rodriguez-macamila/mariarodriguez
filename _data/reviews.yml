@@ -31,3 +31,15 @@
   company: "Princelet"
   year: "2025"
   rating: 5
+  
+- text: "Maria was fantastic to work with ; professional, responsive, and delivered exactly what I needed ahead of schedule. She understood the brief perfectly and produced clear, high-quality architectural drawings that will be invaluable for my project. Highly recommended!"
+  name: "Yogi K."
+  company: "Construction"
+  year: "2025"
+  rating: 5
+
+- text: "I received a quick turn-around on an artistic XMAS gift for my brother. I'm so happy with the results, and the entire experience was positive, friendly and professional from beginning to end. "
+  name: "Brad D"
+  company: "Personal"
+  year: "2024"
+  rating: 5
