@@ -9,13 +9,13 @@
 # they were.
 
 - name: "3D Modelling"
-  description: "DRAFT — I build detailed 3D models of buildings and objects for any use, from investor presentations and marketing renders to 3D printing and web."
+  description: "I build detailed 3D models of buildings and objects for any use, from investor presentations and marketing renders to 3D printing and web."
 
 - name: "Rendering & Visualization"
-  description: "DRAFT — I create high-quality rendered images and walkthroughs that communicate a project clearly, for marketing, client presentations, and investor decks."
+  description: "I create high-quality rendered images and short animations that communicate a project clearly, for marketing, client presentations, and investor decks."
 
 - name: "Architectural Design"
-  description: "DRAFT — I develop design solutions for spaces of any scale, from renovations to conceptual proposals for projects just getting started."
+  description: "I develop design solutions for spaces of any scale, from renovations to conceptual proposals for projects on inital stages."
 
 - name: "Editorial Design"
   description: "I craft considered layouts and typographic systems for editorial projects, from catalogs to research publications, ensuring each piece communicates its ideas clearly and beautifully."
@@ -25,6 +25,3 @@
 
 - name: "Illustration"
   description: "I produce digital illustrations of buildings, objects, and architectural scenes that complement design work and help visualize concepts with clarity and character."
-
-- name: "Interiors"
-  description: "DRAFT — needs your copy. This service wasn't on the original site, so there's no source text to draft from — send me a couple of sentences whenever you can."
