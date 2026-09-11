@@ -1,0 +1,19 @@
+# Client reviews/testimonials shown in the "Reviews" section on the homepage.
+# This file is currently empty, so that section shows a "coming soon" message
+# instead of blank space.
+#
+# To add a review, add an entry in this shape (copy the example, uncomment
+# and edit it, or add a new one below):
+#
+# - text: "Maria delivered exactly what we needed, on time and beautifully presented."
+#   name: "Jane Doe"
+#   company: "Example Studio"
+#   year: "2026"
+#   rating: 5
+#
+# Fields:
+#   text     required — the quote itself, no quotation marks needed, they're added automatically
+#   name     required — client's name
+#   company  optional — shown after the name
+#   year     optional — shown after the company
+#   rating   optional — number of filled stars, 1-5. Defaults to 5 if left out.
