@@ -10,7 +10,7 @@ credits:
 liveUrl: 
 coverImage: "/assets/images/suba-cover.png"
 coverAlt: "render cocina"
-featuredOrder: 
+featuredOrder: 4
 gallery:
   - src: "/assets/images/suba-1.jpg"
     alt: "suba cocina 1"
