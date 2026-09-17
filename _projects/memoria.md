@@ -2,7 +2,7 @@
 layout: project
 title: "Book. La memoria urbana en la representacion cinematografica"
 tagline: "Editorial Design"
-services: ["Editorial Design", "Research & Writing"]
+services: ["Editorial Design", "Research & Writing" ]
 client: ""
 location: "Bogota, Colombia"
 year: "2020"
