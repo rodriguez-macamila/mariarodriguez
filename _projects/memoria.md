@@ -10,7 +10,7 @@ credits: "In collaboration with Architect Jairo H. Agudelo"
 liveUrl: ""
 coverImage: "/assets/images/memoria-cover.png"
 coverAlt: "Book cover"
-featuredOrder: 8
+featuredOrder: 2
 gallery:
   - src: "/assets/images/memoria-1.png"
     alt: "memoria layout 1"
