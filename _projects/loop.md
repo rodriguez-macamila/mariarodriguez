@@ -10,7 +10,7 @@ credits: ""
 liveUrl: ""
 coverImage: "/assets/images/loop-cover.png"
 coverAlt: "Exterior render of the DeSoto commercial development"
-featuredOrder: 4
+featuredOrder: 2
 gallery:
   - src: "/assets/images/loop-1.jpg"
     alt: "loop layout 1"
