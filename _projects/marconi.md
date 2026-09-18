@@ -8,7 +8,7 @@ location: "Verona, Italia"
 year: "2025-2026"
 coverImage: "/assets/images/marconi-cover.png"
 coverAlt: "Marconi interior — placeholder"
-featuredOrder: 1
+featuredOrder: 2
 gallery:
   - src: "/assets/images/marconi-4.jpg"
     alt: "Marconi interior, after 1"
