@@ -9,7 +9,7 @@ year: "2026"
 credits: "Background images from Google Maps. Assets from Blenderkit."
 coverImage: "/assets/images/new-allen-cover.png"
 coverAlt: "Exterior render of the New Allen commercial complex"
-featuredOrder: 1
+featuredOrder: 4
 gallery:
   - src: "/assets/images/new-allen-1.png"
     alt: "New Allen commercial complex, aerial render"
