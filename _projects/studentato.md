@@ -8,7 +8,7 @@ location: "—"
 year: "—"
 coverImage: "/assets/images/studentato-cover.png"
 coverAlt: "Student dorm render — placeholder"
-featuredOrder: 6
+featuredOrder: 3
 gallery:
   - src: "/assets/images/studentato-1.png"
     alt: "Student dorm render, view one"
