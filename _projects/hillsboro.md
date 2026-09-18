@@ -8,7 +8,7 @@ location: "Texas, USA"
 year: "2025"
 coverImage: "/assets/images/hillsboro-cover.png"
 coverAlt: "Exterior render of the Hillsboro commercial strip"
-featuredOrder: 3
+featuredOrder: 6
 gallery:
   - src: "/assets/images/hillsboro-1.png"
     alt: "Hillsboro commercial strip, render two"
